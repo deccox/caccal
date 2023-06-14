@@ -1,0 +1,105 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %} ">
+    <link rel="stylesheet" href="{% static 'styles/home.css' %} ">
+    <link rel="stylesheet" href="{% static 'styles/thread.css' %}">
+    <script src="{% static 'ckeditor/ckeditor.js' %}"></script>
+
+    
+    <script src="https://kit.fontawesome.com/db387ad2ac.js" crossorigin="anonymous"></script>
+    <title>CACCAL.IO</title>
+</head>
+<body>
+    <div class="root">
+
+
+        <!-- Cabecalho here -->
+        <div class="root-header">
+            <header class="head">
+                <div class="head-itens">
+                    <img alt="logotipo do caccal" src="{% static 'icons/icon.jpg' %}" class="head-icon" >
+                    <h3>CACCAL.IO</h3>
+                    <form action="">
+                        <label for="searchbox">
+                            <input type="search" name="searchbox" id="searchbox" placeholder="Procurar">
+                        </label>
+                    </form>
+                </div>
+                <div class="head-icons">
+                    <i class="fa-sharp fa-solid fa-bell fa-lg" style="color: #ffffff;"></i>
+                    <i class="fa-sharp fa-solid fa-envelope fa-lg" style="color: #ffffff;"></i>
+                </div>
+            </header>
+        </div>
+
+
+        <!-- Container here -->
+        <div class="root-container">
+            <nav class="nav-bar">
+                    <div class="nav-bar-itens"> 
+                        <ul class="link-itens" type="none">
+                            <a href="{% url 'home' %}">
+                                <li class="li-itens">
+                                    <div class="li-icons li-1"></div>
+                                    Home
+                                </li>
+                            </a>
+                            
+                            <a href="">
+                                <li class="li-itens">
+                                    <div class="li-icons li-2"></div>
+                                    Profile
+                                </li>
+                            </a>
+                            
+                            <a href="">
+                                <li class="li-itens">
+                                    <div class="li-icons li-3"></div>
+                                    Posts
+                                </li>
+                            </a>
+                            
+                            <a href="">
+                                <li class="li-itens">
+                                    <div class="li-icons li-4"></div>
+                                    Comunidade
+                                </li>
+                            </a>
+                            
+                            <a href="{% url 'home' %}">
+                                <li class="li-itens">
+                                    <div class="li-icons li-5"></div>
+                                    Leaderboards
+                                </li>
+                            </a>
+                            
+                            <a href="{% url 'home' %}">
+                                <li class="li-itens">
+                                    <div class="li-icons li-6"></div>
+                                    About
+                                </li>
+                            </a>
+                            
+                        </ul>
+                    </div>
+            </nav>
+            <main class="content">
+                {% block content %}
+                    
+                {% endblock  %}
+
+            </main>
+            <aside class="bar-right">
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

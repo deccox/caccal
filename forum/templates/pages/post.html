@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="thread-container">
+    <div class="thread-content">
+        <div class="thread-profile">
+
+            <div class="t-profile-img">
+                <img src="{% static 'icons/icon.jpg' %}" alt="i">
+                <div>
+                    <a href="{{post.user.get_url}}">
+                        {{post.user.user.username}}
+                    </a>
+                </div>
+            </div>
+
+            <div class="t-categoria">
+                <span>
+                    {{post.categoria}}
+                </span>
+            </div>
+        </div>
+
+        <div class="thread-desc">
+            <div class="thread-title">
+                <h1>{{post.title}}</h1>
+            </div>
+            <div class="t-post-desc">
+                {{post.desc}}
+            </div>
+            <div class="post-wave">
+                <div class="post-like">
+                    <i class="fa-regular fa-thumbs-up fa-lg" style="color: #e01b24;"></i>
+                    <span>{{post.vote_like}}</span>
+                </div>
+                <div class="post-deslike">
+                    <i class="fa-regular fa-thumbs-down fa-lg" style="color: #e01b24;"></i>
+                    <span>{{post.vote_Deslike}}</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="underline">
+
+        </div>
+
+        <div class="num-response">
+            <div id="tag">
+                <span>Repostas {{ comments.count }}</span>
+            </div>
+            
+        </div>
+
+        <div class="thread-comments">
+            <div class="thread-add-comments">
+                <div class="thread-comments-profile">
+                    <img src="{{post.user.pic_profile.url}}" alt="i">
+                    <span>
+                            {{user.username}}
+                    </span>
+                </div>
+                
+                <form action="" id="form-response" method="POST">
+                    <div class="ckeditor-form">
+                            {% csrf_token %}
+
+                            {{form.media}}
+                            {{ form.as_p }}
+                            
+               
+                    </div>
+                    <div class="response-submit">
+                        <input type="submit" value="Responder">
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        {% for comment in comments %}
+        <div class="thread-responses">
+            <div class="thread-responses-profile">
+                <img src="{% static 'icons/icon.jpg' %}" alt="i">
+                <span>
+                    {{comment.user.username}} 
+                </span>
+            </div>
+            <div class="thread-responses-desc">
+                {{comment.desc|safe}}
+            </div>
+            <div class="post-wave">
+                <div class="post-like">
+                    <i class="fa-regular fa-thumbs-up fa-lg" style="color: #e01b24;"></i>
+                    <span>{{comment.vote_like}}</span>
+                </div>
+                <div class="post-deslike">
+                    <i class="fa-regular fa-thumbs-down fa-lg" style="color: #e01b24;"></i>
+                    <span>{{comment.vote_Deslike}}</span>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+        
+
+
+    </div>
+</div>
+{% endblock %}

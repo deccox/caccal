@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="content-div">
+        
+        <div class="post-content">
+            {% for posts in post %}
+            <div class="post-board">
+                <div class="post-title">
+                    <h1>
+                        <a href="{{posts.get_url}}">
+                            {{posts.title}}
+                        </a>
+                        
+                    </h1>
+                </div>
+                <div class="post-profile">
+                    <div class="p-profile-left">
+                        <img src="{% static 'posts.user.pic_profile' %}">
+
+                        <div class="p-profile-id">
+                            <a href="{{posts.user.get_url}}">
+                                <div>{{posts.user.user.username}}</div>
+                            </a>
+                            
+                            <div>username</div>
+                        </div>
+                    </div>
+                    <div class="p-profile-right">
+                        <button>
+                            {{posts.categoria.name}}
+                        </button>
+                    </div>
+                </div>
+                <div class="post-desc">
+                    {{posts.desc}}
+                </div>
+                <div class="post-footer">
+                    <a href="{{posts.get_url}}">
+                        <div class="post-comments">
+                            <span>
+                                Comentarios
+                            </span>
+                            <span>0</span>
+                        </div>
+                    </a>
+                    
+
+                    <div class="post-wave">
+                        <div class="post-like">
+                            <i class="fa-regular fa-thumbs-up fa-lg" style="color: #e01b24;"></i>
+                            <span>{{posts.vote_like}}</span>
+                        </div>
+                        <div class="post-deslike">
+                            <i class="fa-regular fa-thumbs-down fa-lg" style="color: #e01b24;"></i>
+                            <span>{{posts.vote_Deslike}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        
+    </div>
+{% endblock %}

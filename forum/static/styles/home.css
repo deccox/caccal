@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(../icons/Poppins-Regular.ttf) format('truetype');
+}
+
+:root{
+    --color-button: #C15FFF;
+    --color-board: #160023;
+}
+
+.content-div{
+    max-width: 700px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.writebar{
+    margin-top:20px;
+    width: 100%;
+    background-color: var(--color-board);
+    border-radius:7px;
+    padding:5px;
+ 
+}
+
+.writebarsup{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    gap:10px;
+}
+
+.writebarsup img{
+    width: 75px;
+    height: 75px;
+    border-radius: 7px;
+}
+
+.writebarsup input{
+    width: 100%;
+    height: 75px;
+    color: black;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 800;
+    padding: 5px;
+}
+
+.writebarsup input:focus,
+.writebarsup input:active{
+    outline: none;
+    box-shadow: none;
+}
+
+.writebarinf{
+    display: flex;
+    justify-content: end;
+}
+
+.writebarinf input{
+    width: 100px;
+    color: black;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+}
+.post-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 0 5px;
+}
+
+
+.post-board{
+    width: 100%;
+    background-color: var(--color-board);
+    border-radius: 7px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.post-title{
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 35px;
+}
+
+.post-profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.p-profile-left {
+    display: flex;
+    gap: 10px;
+}
+
+.p-profile-left img{
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+}
+
+.p-profile-right button{
+    color: white;
+    background-color: var(--color-button);
+    border: none;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    padding: 10px;
+    font-weight: 800;
+    border-radius: 7px;
+}
+
+.post-desc{
+    font-size: 1rem;
+    text-align: justify;
+}
+
+
+.post-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-comments{
+    padding:10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: black;
+    border-radius:7px;
+}
+
+.post-wave{
+    display: flex;
+    gap: 10px;
+}
