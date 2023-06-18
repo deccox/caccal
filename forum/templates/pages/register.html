@@ -1,7 +1,67 @@
 {% load static %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/register.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="t">
+            <form action="" method="post" id="register-form">
+                {% csrf_token %}
+                
+                <div class="register-header">
+                    <label for="id-first_name" class="r-form">
+                        Nome<br>
+                        {{form.first_name}}
+                    </label>
+                    <label for="id-last_name"  class="r-form">
+                        Sobrenome<br>
+                        {{form.last_name}}
+                    </label>
+                </div>
+
+                <label for="id_email" class="r-form">
+                    Email<br>
+                    {{form.email}}
+                </label>
+
+                <label for="register-username" class="r-form">
+                    Username<br>
+                    {{form.username}}
+                </label>
+
+                <label for="id_password1" class="r-form">
+                    Senha<br>
+                    {{form.password1}}
+                </label>
+
+                <label for="id_password2" class="r-form">
+                    Confirmar senha<br>
+                    {{form.password2}}
+                </label>
+
+                <input type="submit" value="Registrar" id="login-submit">
+ 
+                
+                <div class="underline-form"></div>
+                
+                <div class="login-footer">
+                    <h3 class="login-footer-title">
+                        Ja tem uma conta? <a href="{% url 'login_form' %}">Login</a>
+                    </h3>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

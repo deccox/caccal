@@ -11,7 +11,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=100, blank=True, null=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, blank=True,null=False)
-    pic_profile = ResizedImageField(size=[200,200], quality=100, upload_to="forum/static/profile-img/")
+    pic_profile = ResizedImageField(size=[200,200], quality=100, upload_to="profile-img/")
     
 
     def get_url(self):

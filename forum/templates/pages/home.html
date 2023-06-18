@@ -18,7 +18,7 @@
                 </div>
                 <div class="post-profile">
                     <div class="p-profile-left">
-                        <img src="{% static 'posts.user.pic_profile' %}">
+                        <img src="{{posts.user.pic_profile.url}}">
 
                         <div class="p-profile-id">
                             <a href="{{posts.user.get_url}}">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="post-desc">
-                    {{posts.desc}}
+                    {{posts.desc|safe}}
                 </div>
                 <div class="post-footer">
                     <a href="{{posts.get_url}}">

@@ -1,9 +1,53 @@
 {% load static %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="text" name="login-username" id="login-username">
-    <input type="password" name="login-password" id="login-password">
-    <input type="submit" value="">
-    <div class="mesages"></div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="t">
+            <form action="" method="post" id="login-form">
+                {% csrf_token %}
+   
+                    <label for="login-username">
+                        Username
+                        <input type="text" name="login-username" id="login-username" class="login-css">
+                    </label>
+        
+                
+                <div id="login-body">
+                    <label for="login-password">
+                        Senha
+                        <input type="password" name="login-password" id="login-password" class="login-css">
+                    </label>
+                    <span id="login-forget">
+                        Forget password?
+                    </span>
+                </div>
+
+
+                    <input type="submit" value="Login" id="login-submit">
+ 
+                
+                <div class="underline-form"></div>
+                
+                <div class="login-footer">
+                    <h3 class="login-footer-title">
+                        Nao tem uma conta? <a href="{% url 'register' %}">Registra-se</a>
+                    </h3>
+                </div>
+                <div class="mesages"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

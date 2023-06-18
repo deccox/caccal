@@ -27,5 +27,6 @@ urlpatterns = [
     path('home/', views.home, name="home"),
     path('profile/<slug>/', views.profile, name="profile"),
     path('post/<slug>/', views.post, name="post"),
+    path('add_post/', views.addPost, name="addPost"),
     path('', views.login_form, name="login_form"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

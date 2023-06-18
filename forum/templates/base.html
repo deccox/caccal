@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="{% static 'styles/base.css' %} ">
     <link rel="stylesheet" href="{% static 'styles/home.css' %} ">
     <link rel="stylesheet" href="{% static 'styles/thread.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/addPost.css' %}">
     <script src="{% static 'ckeditor/ckeditor.js' %}"></script>
 
     
     <script src="https://kit.fontawesome.com/db387ad2ac.js" crossorigin="anonymous"></script>
-    <title>CACCAL.IO</title>
+    <title>CACCAL</title>
 </head>
 <body>
     <div class="root">
@@ -26,7 +28,7 @@
             <header class="head">
                 <div class="head-itens">
                     <img alt="logotipo do caccal" src="{% static 'icons/icon.jpg' %}" class="head-icon" >
-                    <h3>CACCAL.IO</h3>
+                    <h3>CACCAL</h3>
                     <form action="">
                         <label for="searchbox">
                             <input type="search" name="searchbox" id="searchbox" placeholder="Procurar">
@@ -46,27 +48,27 @@
             <nav class="nav-bar">
                     <div class="nav-bar-itens"> 
                         <ul class="link-itens" type="none">
-                            <a href="{% url 'home' %}">
+                            <a href="{% url 'home' %}" class="tag-link">
                                 <li class="li-itens">
                                     <div class="li-icons li-1"></div>
                                     Home
                                 </li>
                             </a>
                             
-                            <a href="">
+                            <a href="{{ profile.get_url }}">
                                 <li class="li-itens">
                                     <div class="li-icons li-2"></div>
                                     Profile
                                 </li>
                             </a>
-                            
-                            <a href="">
+
+                            <a href="{% url 'addPost' %}">
                                 <li class="li-itens">
                                     <div class="li-icons li-3"></div>
-                                    Posts
+                                    Post
                                 </li>
                             </a>
-                            
+                                                        
                             <a href="">
                                 <li class="li-itens">
                                     <div class="li-icons li-4"></div>

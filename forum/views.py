@@ -29,16 +29,17 @@ def home(request):
     if request.user.is_authenticated:
         user = request.user
         profile = Profile.objects.get(user=user)
-        post = Post.objects.all()
+        post = Post.objects.all().order_by('-id')
         context = {
             'post':post,
             'user':user,
             'profile':profile,
         }
+        return render(request, 'pages/home.html', context)
     else:
         return redirect('login_form')
     
-    return render(request, 'pages/home.html', context)
+    
 
 
 def login_form(request):
@@ -97,9 +98,42 @@ def post(request, slug):
 
 def profile(request, slug):
     if request.user.is_authenticated:
-        pass
+        profile = get_object_or_404(Profile, slug=slug)
+        post = Post.objects.all().filter(user=profile)
+        print(post)
+        context = {
+            'post':post,
+            'profile':profile,
+        }
     else:
         return redirect('login_form')
-    profile = get_object_or_404(Profile, slug=slug)
-    user = User.objects.filter(profile=profile)
-    return render(request, 'pages/profile.html', {'user': user})
+    
+    return render(request, 'pages/profile.html', context)
+
+
+def addPost(request):
+    if request.user.is_authenticated:
+        user = request.user
+        profile = get_object_or_404(Profile, user=user)
+        
+        if request.method == 'POST':
+            form = PostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.user = profile
+                post.save()
+
+                return redirect('home')
+        else:
+            form = PostForm()
+
+        context = {
+                'form':form,
+                'profile':profile,
+            }
+        return render(request, 'pages/addPost.html', context)
+    else:
+        return redirect('login_form')
+
+    
+    

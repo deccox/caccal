@@ -1,2 +1,76 @@
+{% extends 'base.html' %}
 
-{{user.first_name}}
+{% load static %}
+
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-board">
+        <img src="{{ profile.pic_profile.url }}" alt="">
+    </div>
+    <div class="profile-bio">
+        <h1>{{profile.user.username}}</h1>
+        <span>{{profile.user.first_name}} {{profile.user.last_name}}</span>
+        <h3>{{profile.bio}}</h3>
+    </div>
+    <div class="underline"></div>
+    <div class="profile-threads">
+        {% if post.count >= 1%}
+            {% for posts in post %}
+                <div class="post-board">
+                    <div class="post-title">
+                        <h1>
+                            <a href="{{posts.get_url}}">
+                                {{posts.title}}
+                            </a>
+                            
+                        </h1>
+                    </div>
+                    <div class="post-profile">
+                        <div class="p-profile-left">
+                            <img src="{{ profile.pic_profile.url }}">
+        
+                            <div class="p-profile-id">
+                                <a href="{{posts.user.get_url}}">
+                                    <div>{{posts.user.user.username}}</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-profile-right">
+                            <button>
+                                {{posts.categoria.name}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="post-desc">
+                        {{posts.desc}}
+                    </div>
+                    <div class="post-footer">
+                        <a href="{{posts.get_url}}">
+                            <div class="post-comments">
+                                <span>
+                                    Comentarios
+                                </span>
+                                <span>0</span>
+                            </div>
+                        </a>
+                        
+        
+                        <div class="post-wave">
+                            <div class="post-like">
+                                <i class="fa-regular fa-thumbs-up fa-lg" style="color: #e01b24;"></i>
+                                <span>{{posts.vote_like}}</span>
+                            </div>
+                            <div class="post-deslike">
+                                <i class="fa-regular fa-thumbs-down fa-lg" style="color: #e01b24;"></i>
+                                <span>{{posts.vote_Deslike}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+</div>
+{% endblock %}

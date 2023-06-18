@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="add-container">
+    <form action="" method="post" id="PostForm">
+        {% csrf_token %}
+        <label for="post-title">
+            <h1>Titulo</h1>
+            {{ form.title }}
+        </label>
+        <label for="post-categoria">
+            <h1>Categoria</h1>
+            {{ form.categoria }}
+        </label>
+
+        <label for="">
+            {{ form.media }}
+            {{ form.desc }}
+        </label>
+
+        <input type="submit" value="Enviar" class="postform-submit">
+    </form>
+    
+</div>
+{% endblock %}
