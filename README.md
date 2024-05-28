@@ -12,6 +12,18 @@ Este projeto consiste em um fórum online desenvolvido pelo Centro Acadêmico de
 
 ## Screenshots
 
+### Login
+
+<img src="/screenshots/login.png" width="65%"/>
+
+### Home
+
+<img src="/screenshots/home.png" width="65%"/>
+
+### Painel de Admin
+
+<img src="/screenshots/admin.png" width="65%"/>
+
 ## Funcionalidades
 
 - **Registro e Login**: Sistema de autenticação seguro para usuários.
